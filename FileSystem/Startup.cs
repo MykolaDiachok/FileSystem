@@ -11,6 +11,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FileSystem.Core.Action;
+using FileSystem.Core.Base;
 
 namespace FileSystem
 {
@@ -32,6 +34,12 @@ namespace FileSystem
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "FileSystem", Version = "v1" });
             });
+            services.AddSingleton<IFileSystem<IFile, IDirectory>>();
+            services.AddTransient<IFile>();
+            services.AddTransient<IDirectory>();
+            services.AddTransient<IFileJob>();
+            services.AddTransient<IDirectoryJob>();
+            services.AddTransient<IFileSystemJob>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
