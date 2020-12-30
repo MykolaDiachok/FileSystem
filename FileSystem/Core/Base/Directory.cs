@@ -2,12 +2,13 @@
 
 namespace FileSystem.Core.Base
 {
-    public class Directory
+    public class Directory:IDirectory,IFile
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
-        public Category Category { get; set; }
-        public Directory ParentDirectory { get; set; }
+        public string Category { get; set; }
+        public Guid ParentDirectoryId { get; set; }
         public bool Deleted { get; set; }
+        public bool IsDirectory { get; } = true;
     }
 }
