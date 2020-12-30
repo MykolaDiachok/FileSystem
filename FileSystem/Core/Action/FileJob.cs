@@ -10,27 +10,29 @@ namespace FileSystem.Core.Action
     public class FileJob:IFileJob
     {
         private readonly ILogger<FileJob> _logger;
+        private readonly IFileSystem<IFile, IDirectory> _fileSystem;
 
-        public FileJob(ILogger<FileJob> logger)
+        public FileJob(IFileSystem<IFile,IDirectory> fileSystem, ILogger<FileJob> logger)
         {
             _logger = logger;
+            _fileSystem = fileSystem;
         }
-        public void AddFile(string name, Guid fileId, Category category, Guid parentDirectoryId)
+        public bool AddFile(string name, Guid fileId, string category, Guid parentDirectoryId)
         {
             throw new NotImplementedException();
         }
 
-        public void AddFile(string name, Guid fileId, Category category, Directory parentDirectory)
+        public bool AddFile(string name, Guid fileId, string category, Directory parentDirectory)
         {
             throw new NotImplementedException();
         }
 
-        public void DeleteFile(Guid fileId)
+        public bool DeleteFile(Guid fileId)
         {
             throw new NotImplementedException();
         }
 
-        public void DeleteFile(File file)
+        public bool DeleteFile(File file)
         {
             throw new NotImplementedException();
         }

@@ -6,28 +6,30 @@ namespace FileSystem.Core.Action
 {
     public class DirectoryJob:IDirectoryJob
     {
+        private readonly IFileSystem<IFile, IDirectory> _fileSystem;
         private readonly ILogger<DirectoryJob> _logger;
 
-        public DirectoryJob(ILogger<DirectoryJob> logger)
+        public DirectoryJob(IFileSystem<IFile,IDirectory> fileSystem,ILogger<DirectoryJob> logger)
         {
+            _fileSystem = fileSystem;
             _logger = logger;
         }
-        public void AddDirectory(string name, Guid directoryId, Category category, Guid parentDirectoryId)
+        public bool AddDirectory(string name, Guid directoryId, string category, Guid parentDirectoryId)
         {
             throw new NotImplementedException();
         }
 
-        public void AddDirectory(string name, Guid directoryId, Category category, Directory parentDirectory)
+        public bool AddDirectory(string name, Guid directoryId, string category, Directory parentDirectory)
         {
             throw new NotImplementedException();
         }
 
-        public void DeleteDirectory(Guid directoryId)
+        public bool DeleteDirectory(Guid directoryId)
         {
             throw new NotImplementedException();
         }
 
-        public void DeleteDirectory(Directory directory)
+        public bool DeleteDirectory(Directory directory)
         {
             throw new NotImplementedException();
         }

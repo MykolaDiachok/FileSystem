@@ -3,12 +3,12 @@ using FileSystem.Core.Base;
 
 namespace FileSystem.Core.Action
 {
-    internal interface IDirectoryJob
+    public interface IDirectoryJob
     {
-        void AddDirectory(string name, Guid directoryId, Category category, Guid parentDirectoryId);
-        void AddDirectory(string name, Guid directoryId, Category category, Directory parentDirectory);
-        void DeleteDirectory(Guid directoryId);
-        void DeleteDirectory(Directory directory);
+        bool AddDirectory(string name, Guid directoryId, string category, Guid parentDirectoryId);
+        bool AddDirectory(string name, Guid directoryId, string category, Directory parentDirectory);
+        bool DeleteDirectory(Guid directoryId);
+        bool DeleteDirectory(Directory directory);
 
     }
 }

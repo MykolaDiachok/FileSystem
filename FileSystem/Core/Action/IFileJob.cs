@@ -3,11 +3,11 @@ using FileSystem.Core.Base;
 
 namespace FileSystem.Core.Action
 {
-    internal interface IFileJob
+    public interface IFileJob
     {
-        void AddFile(string name, Guid fileId, Category category, Guid parentDirectoryId);
-        void AddFile(string name, Guid fileId, Category category, Directory parentDirectory);
-        void DeleteFile(Guid fileId);
-        void DeleteFile(File file);
+        bool AddFile(string name, Guid fileId, string category, Guid parentDirectoryId);
+        bool AddFile(string name, Guid fileId, string category, Directory parentDirectory);
+        bool DeleteFile(Guid fileId);
+        bool DeleteFile(File file);
     }
 }
